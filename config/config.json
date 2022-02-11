@@ -2,37 +2,39 @@
   "backends": [
     {
       "urlPattern": "/abc",
-      "routing": {
-        "routerType": "IP"
-      },
       "upstreams": [
         {
           "host": "http://127.0.0.1:8000",
-          "weight": 1,
-          "ipWhitelist": "0.0.0.0"
+          "routing": {
+            "weight": 1,
+            "ipWhitelist": "0.0.0.0"
+          }
         },
         {
           "host": "http://127.0.0.1:8001",
-          "weight": 2,
-          "ipWhitelist": "0.0.0.0"
+          "routing": {
+            "weight": 2,
+            "ipWhitelist": "0.0.0.0"
+          }
         }
       ]
     },
     {
       "urlPattern": "/xyz",
-      "routing": {
-        "routerType": "IP"
-      },
       "upstreams": [
         {
-          "host": "http://localhost:1111",
-          "weight": 1,
-          "ipWhitelist": "0.0.0.0"
+          "host": "http://127.0.0.1:8004",
+          "routing": {
+            "weight": 1,
+            "ipWhitelist": "0.0.0.0"
+          }
         },
         {
-          "host": "http://localhost:2222",
-          "weight": 2,
-          "ipWhitelist": "0.0.0.0"
+          "host": "http://127.0.0.1:8007",
+          "routing": {
+            "weight": 2,
+            "ipWhitelist": "0.0.0.0"
+          }
         }
       ]
     }

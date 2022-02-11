@@ -30,7 +30,7 @@ func AddRoute(backend config.Backend, m *http.ServeMux) {
 			f.BlockIP(upstream.Routing.IPWhitelist)
 		}
 
-		lb.UpsertServer(testutils.ParseURI(upstream.Host), roundrobin.Weight(upstream.Weight))
+		lb.UpsertServer(testutils.ParseURI(upstream.Host), roundrobin.Weight(upstream.Routing.Weight))
 	}
 
 	// handle all requests to your server using the proxy

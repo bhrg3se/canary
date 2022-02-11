@@ -14,16 +14,15 @@ type Backend struct {
 }
 
 type Routing struct {
+	Weight      int    `json:"weight,omitempty"`
 	UrlPattern  string `json:"urlPattern,omitempty"`
 	IPWhitelist string `json:"ipWhitelist,omitempty"`
 	IPBlacklist string `json:"ipBlacklist,omitempty"`
-	RouterType  string `json:"routerType,omitempty"`
 }
 
 type Upstream struct {
 	Name    string  `json:"name,omitempty"`
 	Host    string  `json:"host,omitempty"`
-	Weight  int     `json:"weight,omitempty"`
 	Routing Routing `json:"routing"`
 }
 
