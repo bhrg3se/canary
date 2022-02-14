@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/bhrg3se/reverse-proxy/config"
-	"github.com/bhrg3se/reverse-proxy/routes"
+	"github.com/bhrg3se/reverse-proxy/forward"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 )
@@ -12,10 +12,11 @@ func main() {
 	m := http.NewServeMux()
 
 	conf := config.GetConfig()
-	for _, backend := range conf.Backends {
-		routes.AddRoute(backend, m)
-	}
-	log.Info("Listening on: 0.0.0.0:8000")
+
+	m.Handle(conf.MainUpstreamPattern, forward.ToMain(conf.MainUpstreamHost))
+	m.Handle(conf.CanaryUpstreamPattern, forward.ToCanary(conf))
+
+	log.Info("Listening on: 0.0.0.0:8080")
 	log.Fatal(http.ListenAndServe(":8080", m))
 
 }

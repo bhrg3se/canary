@@ -1,43 +1,12 @@
 {
-  "backends": [
-    {
-      "urlPattern": "/abc",
-      "upstreams": [
-        {
-          "host": "http://127.0.0.1:8000",
-          "routing": {
-            "weight": 1,
-            "ipWhitelist": "0.0.0.0"
-          }
-        },
-        {
-          "host": "http://127.0.0.1:8001",
-          "routing": {
-            "weight": 2,
-            "ipWhitelist": "0.0.0.0"
-          }
-        }
-      ]
-    },
-    {
-      "urlPattern": "/xyz",
-      "upstreams": [
-        {
-          "host": "http://127.0.0.1:8004",
-          "routing": {
-            "weight": 1,
-            "ipWhitelist": "0.0.0.0"
-          }
-        },
-        {
-          "host": "http://127.0.0.1:8007",
-          "routing": {
-            "weight": 2,
-            "ipWhitelist": "0.0.0.0"
-          }
-        }
-      ]
-    }
-
-  ]
+  "mainUpstreamHost": "http://localhost:8001",
+  "mainUpstreamPattern": "/api/v1/",
+  "canaryUpstreamHost": "http://localhost:8002",
+  "canaryUpstreamPattern": "/api/v2/",
+  "canaryConfig": {
+    "routeType": "content",
+    "trafficPercent": 25,
+    "ipWhitelist": "::1",
+    "ipBlacklist": "127.0.0.1"
+  }
 }

@@ -3,27 +3,18 @@ package config
 import "github.com/spf13/viper"
 
 type Config struct {
-	Backends  []Backend `json:"backends,omitempty"`
-	RouteType string
+	MainUpstreamHost      string       `json:"mainUpstreamHost,omitempty"`    // old cluster
+	MainUpstreamPattern   string       `json:"mainUpstreamPattern,omitempty"` // old cluster
+	CanaryUpstreamHost    string       `json:"canaryUpstreamHost,omitempty"`
+	CanaryUpstreamPattern string       `json:"canaryUpstreamPattern,omitempty"`
+	CanaryConfig          CanaryConfig `json:"canaryConfig,omitempty"`
 }
 
-type Backend struct {
-	Name       string     `json:"name,omitempty"`
-	UrlPattern string     `json:"urlPattern,omitempty"`
-	Upstreams  []Upstream `json:"upstreams,omitempty"`
-}
-
-type Routing struct {
-	Weight      int    `json:"weight,omitempty"`
-	UrlPattern  string `json:"urlPattern,omitempty"`
-	IPWhitelist string `json:"ipWhitelist,omitempty"`
-	IPBlacklist string `json:"ipBlacklist,omitempty"`
-}
-
-type Upstream struct {
-	Name    string  `json:"name,omitempty"`
-	Host    string  `json:"host,omitempty"`
-	Routing Routing `json:"routing"`
+type CanaryConfig struct {
+	RouteType      string `json:"routeType"`
+	TrafficPercent int    `json:"trafficPercent,omitempty"`
+	IPWhitelist    string `json:"ipWhitelist,omitempty"`
+	IPBlacklist    string `json:"ipBlacklist,omitempty"`
 }
 
 func GetConfig() *Config {
