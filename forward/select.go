@@ -1,8 +1,8 @@
 package forward
 
 import (
-	"github.com/bhrg3se/reverse-proxy/config"
-	"github.com/bhrg3se/reverse-proxy/iprouter"
+	"github.com/bhrg3se/canary/config"
+	"github.com/bhrg3se/canary/iprouter"
 	log "github.com/sirupsen/logrus"
 	"github.com/vulcand/oxy/forward"
 	"github.com/vulcand/oxy/roundrobin"

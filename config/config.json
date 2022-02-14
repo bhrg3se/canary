@@ -6,7 +6,7 @@
   "canaryConfig": {
     "routeType": "content",
     "trafficPercent": 25,
-    "ipWhitelist": "::1",
-    "ipBlacklist": "127.0.0.1"
+    "ipWhitelist": "127.0.0.1",
+    "ipBlacklist": "192.168.0.22"
   }
 }

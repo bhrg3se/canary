@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/bhrg3se/reverse-proxy/config"
-	"github.com/bhrg3se/reverse-proxy/forward"
+	"github.com/bhrg3se/canary/config"
+	"github.com/bhrg3se/canary/forward"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 )

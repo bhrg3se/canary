@@ -1,4 +1,4 @@
-module github.com/bhrg3se/reverse-proxy
+module github.com/bhrg3se/canary
 
 go 1.17
 

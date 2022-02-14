@@ -1,7 +1,7 @@
 package iprouter
 
 import (
-	"github.com/bhrg3se/reverse-proxy/config"
+	"github.com/bhrg3se/canary/config"
 	"github.com/jpillora/ipfilter"
 	log "github.com/sirupsen/logrus"
 	"github.com/vulcand/oxy/roundrobin"

@@ -1,2 +1,2 @@
-# reverse-proxy
-A simple reverse-proxy
+# canary
+A simple canary proxy
